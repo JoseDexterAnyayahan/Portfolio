@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Github, Instagram, InstagramIcon, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,27 +17,37 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider">
-              Pages
+              Sections
             </h4>
+
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/about" className="hover:text-foreground">
+                <Link href="#about" className="hover:text-foreground">
                   About
                 </Link>
               </li>
+
               <li>
-                <Link href="/work" className="hover:text-foreground">
-                  Work
+                <Link href="#WhatIDo" className="hover:text-foreground">
+                  Expertise
                 </Link>
               </li>
+
               <li>
-                <Link href="/services" className="hover:text-foreground">
-                  Services
+                <Link href="#FeaturedWork" className="hover:text-foreground">
+                  Projects
                 </Link>
               </li>
+
               <li>
-                <Link href="/contact" className="hover:text-foreground">
-                  Contact
+                <Link href="#ProcessSection" className="hover:text-foreground">
+                  Workflow
+                </Link>
+              </li>
+
+              <li>
+                <Link href="#ToolsSection" className="hover:text-foreground">
+                  Stack
                 </Link>
               </li>
             </ul>
@@ -50,23 +60,23 @@ export default function Footer() {
             </h4>
             <div className="flex gap-4">
               <Link
-                href="https://instagram.com"
+                href="https://www.facebook.com/jd.anyayahan"
                 target="_blank"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Instagram className="h-5 w-5" />
+                <Facebook className="h-5 w-5" />
               </Link>
 
               <Link
-                href="https://youtube.com"
+                href="https://www.instagram.com/jyd.wrld/"
                 target="_blank"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Youtube className="h-5 w-5" />
+                <InstagramIcon className="h-5 w-5" />
               </Link>
 
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/jose-dexter-anyayahan-3b6a00367/"
                 target="_blank"
                 className="text-muted-foreground hover:text-foreground"
               >
@@ -74,7 +84,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="https://github.com"
+                href="https://github.com/JoseDexterAnyayahan"
                 target="_blank"
                 className="text-muted-foreground hover:text-foreground"
               >

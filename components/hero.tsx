@@ -1,47 +1,67 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+"use client";
+
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="grid min-h-[80vh] grid-cols-1 items-center gap-12 py-16 md:grid-cols-2 md:py-24">
-      {/* LEFT: Text */}
-      <div className="flex flex-col gap-6">
-        <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-          Visual Stories.
-          <br />
-          <span className="text-muted-foreground">
-            Digital Experiences.
-          </span>
-        </h1>
+    <section className="relative grid min-h-[85vh] grid-cols-1 items-center gap-12 overflow-hidden py-16 md:grid-cols-2 md:py-24">
+      {/* LEFT: TEXT */}
+      <div className="flex flex-col gap-8 animate-fade-up">
+        <div className="space-y-4">
+          <p className="text-sm font-medium tracking-[0.25em] text-purple-600">
+            HELLO, I AM
+          </p>
 
-        <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
-          I’m a creative professional blending videography, photography, design,
-          and web development to build powerful brands.
+          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
+            JOSE DEXTER ANYAYAHAN
+          </h1>
+
+          <h2 className="relative inline-block text-lg font-semibold tracking-wide text-muted-foreground sm:text-xl">
+            A WEB DEVELOPER AND MULTIMEDIA ARTIST
+            <span className="absolute -bottom-1 left-0 h-0.75 w-full rounded-full bg-purple-600/80" />
+          </h2>
+        </div>
+
+        <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          IT graduate blending web development and multimedia to create clean
+          visuals and reliable digital experiences.
         </p>
 
-        <div className="flex flex-wrap gap-4 pt-4">
-          <Button size="lg">View Work</Button>
-          <Button size="lg" variant="outline">
-            Hire Me
+        <div className="flex flex-wrap gap-4 pt-2">
+          <Button size="lg" asChild>
+            <Link href="#FeaturedWork">View Work</Link>
+          </Button>
+
+          <Button size="lg" variant="outline" asChild>
+            <a
+              href="/JOSE DEXTER ANYAYAHAN.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download CV
+            </a>
           </Button>
         </div>
       </div>
 
-      {/* RIGHT: Image (hidden on mobile) */}
-      <div className="relative mx-auto hidden w-full max-w-sm items-center justify-center md:flex">
-        {/* Circular background */}
-        <div className="absolute -z-10 h-90 w-90 rounded-full bg-muted" />
+      {/* RIGHT: IMAGE */}
+      <div className="relative mx-auto hidden w-full max-w-sm items-center justify-center md:flex animate-fade-in">
+        <div className="absolute -z-10 h-80 w-80 rounded-full bg-purple-600/20 blur-3xl" />
 
-        {/* Photo */}
         <Image
           src="/images/myphoto.png"
-          alt="JD portrait"
-          width={320}
-          height={320}
+          alt="Jose Dexter Anyayahan portrait"
+          width={340}
+          height={340}
           className="rounded-full object-cover"
           priority
         />
       </div>
     </section>
-  )
+  );
 }

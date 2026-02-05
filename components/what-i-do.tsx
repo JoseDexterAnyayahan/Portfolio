@@ -1,73 +1,120 @@
-import {
-  Video,
-  Camera,
-  Palette,
-  Code,
-  Wand2,
-} from "lucide-react"
+import { Video, Camera, Palette, Code, Wand2, Megaphone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
+    title: "Web Development",
+    description:
+      "Fast, responsive websites built with modern frameworks and clean UI systems.",
+    icon: Code,
+  },
+  {
     title: "Videography",
     description:
-      "Cinematic video production for brands, events, and storytellers.",
+      "Cinematic video production for brands, events, promos, and storytelling content.",
     icon: Video,
   },
   {
     title: "Photography",
     description:
-      "High-quality photography for products, portraits, and lifestyle.",
+      "Professional photography for products, portraits, lifestyle, and brand visuals.",
     icon: Camera,
   },
   {
     title: "Video & Photo Editing",
     description:
-      "Professional post-production with attention to detail and mood.",
+      "Color grading, retouching, and post-production that enhances mood and clarity.",
     icon: Wand2,
   },
   {
     title: "Graphic Design",
     description:
-      "Clean, modern visual identities and marketing creatives.",
+      "Modern layouts, brand assets, and marketing creatives with strong visual impact.",
     icon: Palette,
   },
   {
-    title: "Web Development",
+    title: "Social Media Management",
     description:
-      "Responsive, fast, and aesthetic websites built with modern tech.",
-    icon: Code,
+      "Content planning, visual consistency, posting strategy, and engagement optimization.",
+    icon: Megaphone,
   },
-]
+];
 
 export default function WhatIDo() {
   return (
-    <section className="py-24">
-      <div className="mb-12 max-w-2xl">
-        <h2 className="text-3xl font-bold mb-4">What I Do</h2>
-        <p className="text-muted-foreground">
-          I combine visual storytelling and modern web technology
-          to help brands stand out with clarity and impact.
+    <section id="WhatIDo" className="relative py-20 md:py-28">
+
+      {/* HEADER */}
+      <div className="mb-16 max-w-2xl">
+        <span className="text-sm font-medium text-purple-600">Expertise</span>
+
+        <h2 className="mb-4 text-3xl font-bold md:text-4xl">What I Do</h2>
+
+        <p className="leading-relaxed text-muted-foreground">
+          I combine visual storytelling, creative production, and modern web
+          technology to build compelling digital experiences and strong brand
+          presence.
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
-        {services.map((service) => (
-          <div
-            key={service.title}
-            className="group rounded-2xl border border-border p-6 transition hover:bg-muted cursor-pointer"
-          >
-            <service.icon className="mb-4 h-6 w-6 text-muted-foreground group-hover:text-foreground transition" />
+      {/* GRID */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, i) => {
+          const Icon = service.icon;
 
-            <h3 className="mb-2 text-lg font-semibold">
-              {service.title}
-            </h3>
+          return (
+            <Card
+              key={service.title}
+              className="
+            group
+            relative
+            overflow-hidden
+            border
+            bg-background/70
+            backdrop-blur
+            transition-all
+            duration-300
+            hover:-translate-y-2
+            hover:shadow-2xl
+            cursor-pointer
+            animate-fade-up
+          "
+              style={{ animationDelay: `${i * 0.08}s` }}
+            >
+              {/* PURPLE TOP ACCENT */}
+              <div className="absolute inset-x-0 top-0 h-1 bg-purple-600/70 opacity-0 transition group-hover:opacity-100" />
 
-            <p className="text-sm text-muted-foreground">
-              {service.description}
-            </p>
-          </div>
-        ))}
+              <CardContent className="p-7">
+                {/* ICON BADGE */}
+                <div
+                  className="
+                mb-5 inline-flex h-12 w-12 items-center justify-center
+                rounded-2xl
+                bg-purple-600/10
+                text-purple-600
+                transition
+                group-hover:bg-purple-600
+                group-hover:text-white
+                shadow-sm
+              "
+                >
+                  <Icon className="h-5 w-5" />
+                </div>
+
+                {/* TITLE */}
+                <h3 className="mb-2 text-lg font-semibold tracking-tight">
+                  {service.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </section>
-  )
+  );
 }

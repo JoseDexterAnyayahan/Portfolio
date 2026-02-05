@@ -1,69 +1,111 @@
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 
 const processSteps = [
   {
     step: "01",
-    title: "Discover",
+    title: "Discovery & Direction",
     description:
-      "Understanding your vision, goals, and audience to define a strong creative direction.",
+      "We begin with deep understanding of goals, audience, and brand voice to align every creative decision with clear purpose.",
   },
   {
     step: "02",
-    title: "Plan",
+    title: "Strategy & Planning",
     description:
-      "Structuring the concept, visuals, and technical approach for clarity and impact.",
+      "Concepts, layouts, shot lists, and technical structures are mapped to ensure clarity, efficiency, and strong execution.",
   },
   {
     step: "03",
-    title: "Create",
+    title: "Production & Creation",
     description:
-      "Bringing ideas to life through filming, designing, editing, and development.",
+      "Filming, designing, editing, and development transform ideas into high-impact visual and digital assets.",
   },
   {
     step: "04",
-    title: "Deliver",
+    title: "Refinement & Delivery",
     description:
-      "Refining every detail and delivering polished visuals ready to launch.",
+      "Every detail is polished, optimized, and finalized before launch, publishing, or deployment.",
   },
 ]
 
 export default function ProcessSection() {
   return (
-    <section className="py-24">
-      <div className="mb-12 max-w-2xl">
-        <h2 className="mb-4 text-3xl font-bold">
-          My Process
+    <section
+      id="ProcessSection"
+      className="relative py-24 md:py-28 overflow-hidden"
+    >
+    
+      {/* HEADER */}
+      <div className="mb-20 max-w-2xl space-y-4">
+        <span className="text-sm font-medium text-purple-600">
+          Workflow
+        </span>
+
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          Creative Process
         </h2>
-        <p className="text-muted-foreground">
-          A simple and structured approach to transform ideas
-          into compelling visual and digital experiences.
+
+        <p className="text-lg leading-relaxed text-muted-foreground">
+          A structured, client-focused workflow that turns ideas into
+          cinematic visuals and high-performing digital experiences.
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {processSteps.map((item) => (
+      {/* GRID */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {processSteps.map((item, i) => (
           <Card
             key={item.step}
-            className="group relative overflow-hidden"
+            className="
+              group
+              relative
+              overflow-hidden
+              border-border/60
+              bg-background/70
+              backdrop-blur
+              transition-all
+              duration-300
+              hover:-translate-y-2
+              hover:shadow-2xl
+              animate-fade-up
+            "
+            style={{ animationDelay: `${i * 0.08}s` }}
           >
-            <CardContent className="flex h-full flex-col gap-4 p-6">
-              <span className="text-sm font-medium text-muted-foreground">
-                {item.step}
-              </span>
+            {/* TOP ACCENT BAR */}
+            <div className="absolute inset-x-0 top-0 h-1 bg-purple-600/70 opacity-0 transition group-hover:opacity-100" />
 
-              <h3 className="text-xl font-semibold">
+            <CardContent className="flex h-full flex-col gap-6 p-7">
+              {/* STEP HEADER */}
+              <div className="flex items-center justify-between">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Step
+                </span>
+
+                <div
+                  className="
+                    flex h-11 w-11 items-center justify-center
+                    rounded-full border border-purple-600/40
+                    text-sm font-bold text-purple-600
+                    transition
+                    group-hover:bg-purple-600
+                    group-hover:text-white
+                  "
+                >
+                  {item.step}
+                </div>
+              </div>
+
+              {/* TITLE */}
+              <h3 className="text-xl font-semibold leading-snug">
                 {item.title}
               </h3>
 
-              <p className="text-sm text-muted-foreground">
+              {/* DESCRIPTION */}
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
 
-              {/* Hover accent */}
-              <div className="absolute inset-x-0 bottom-0 h-1 scale-x-0 bg-foreground transition-transform group-hover:scale-x-100" />
+              {/* BOTTOM ACCENT */}
+              <div className="mt-auto h-0.5 w-0 bg-purple-600 transition-all duration-300 group-hover:w-full" />
             </CardContent>
           </Card>
         ))}
