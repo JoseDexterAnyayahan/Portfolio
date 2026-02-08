@@ -19,11 +19,27 @@ export default function CTASection() {
   async function handleSubmit(formData: FormData) {
     setLoading(true);
 
-    // TODO: connect to email service later
-    await new Promise((res) => setTimeout(res, 1200));
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
     setLoading(false);
-    setSuccess(true);
+
+    if (res.ok) {
+      setSuccess(true);
+    } else {
+      alert("Something went wrong. Try again.");
+    }
   }
 
   if (!mounted) return null;

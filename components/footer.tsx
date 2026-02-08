@@ -96,7 +96,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-10 border-t pt-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} YourName. All rights reserved.
+          © {new Date().getFullYear()} Jose Dexter. All rights reserved.
         </div>
       </div>
     </footer>

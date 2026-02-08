@@ -19,7 +19,7 @@ export default function Hero() {
             JOSE DEXTER ANYAYAHAN
           </h1>
 
-          <h2 className="relative inline-block text-lg font-semibold tracking-wide text-muted-foreground sm:text-xl">
+          <h2 className="relative inline-block text-sm font-semibold tracking-wide text-muted-foreground sm:text-base md:text-lg lg:text-xl">
             A WEB DEVELOPER AND MULTIMEDIA ARTIST
             <span className="absolute -bottom-1 left-0 h-0.75 w-full rounded-full bg-purple-600/80" />
           </h2>

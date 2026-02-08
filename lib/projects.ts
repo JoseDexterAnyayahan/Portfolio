@@ -19,6 +19,13 @@ export type Project =
     };
 
 export const featuredProjects: Project[] = [
+    {
+    title: "Japanese Restaurant UI/UX",
+    category: "Web Development",
+    type: "website",
+    thumbnail: "/images/work/japanese-restaurant.png",
+    url: "https://resto-template.vercel.app/dashboard/admin-dashboard",
+  },
   {
     title: "Portfolio Website",
     category: "Web Development",
