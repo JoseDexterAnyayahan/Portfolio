@@ -65,6 +65,7 @@ export const projects: Project[] = [
     type: "video",
     thumbnail: "/images/work/mv.png",
     url: "https://youtu.be/zDysAdf4xZc?si=hnjUZTLh9gU-3Qc-",
+    featured: true,
   },
   {
     title: "Prenup Session",
@@ -72,6 +73,7 @@ export const projects: Project[] = [
     type: "image",
     thumbnail: "/images/work/A-3411.jpg",
     src: "/images/work/A-3411.jpg",
+    featured: true,
   },
   {
     title: "Potrait Session",
@@ -86,6 +88,7 @@ export const projects: Project[] = [
     type: "image",
     thumbnail: "/images/work/Thumbnail.png",
     src: "/images/work/Thumbnail.png",
+    featured: true,
   },
   {
     title: "Social Poster Multimedia",
