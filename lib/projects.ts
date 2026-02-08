@@ -1,54 +1,50 @@
-export type Project = {
-  title: string
-  category: string
-  type: "image" | "video" | "website"
-  src: string
-  thumbnail: string
-  description?: string
-}
+// lib/projects.ts
 
+export type Project =
+  | {
+      title: string;
+      category: string;
+      type: "image";
+      thumbnail: string;
+      src: string; // local image
+      description?: string;
+    }
+  | {
+      title: string;
+      category: string;
+      type: "video" | "website";
+      thumbnail: string;
+      url: string; // youtube or live site
+      description?: string;
+    };
 
 export const featuredProjects: Project[] = [
+  {
+    title: "Portfolio Website",
+    category: "Web Development",
+    type: "website",
+    thumbnail: "/images/work/website.png",
+    url: "https://example.com",
+  },
   {
     title: "Business Opening Video",
     category: "Videography",
     type: "video",
-    src: "/videos/work/IPPONYARI.mp4",
     thumbnail: "/images/work/ipponyari.png",
+    url: "https://www.youtube.com/watch?v=VIDEO_ID",
   },
   {
     title: "Prenup Session",
     category: "Photography",
     type: "image",
-    src: "/images/work/A-3411.jpg",
     thumbnail: "/images/work/A-3411.jpg",
-  },
-  {
-    title: "Trailer Edit",
-    category: "Video Editing",
-    type: "video",
-    src: "/videos/work/Trailer.mp4",
-    thumbnail: "/images/work/Cover.jpg",
-  },
-  {
-    title: "Brand Poster Design",
-    category: "Graphic Design",
-    type: "image",
-    src: "/images/work/POSTING 5.png",
-    thumbnail: "/images/work/POSTING 5.png",
-  },
-  {
-    title: "Portfolio Website",
-    category: "Web Development",
-    type: "website",
-    src: "https://example.com",
-    thumbnail: "/images/work/website.png",
+    src: "/images/work/A-3411.jpg",
   },
   {
     title: "Social Media Thumbnail",
-    category: "Social Media Management",
+    category: "Graphics",
     type: "image",
-    src: "/images/work/Thumbnail.png",
     thumbnail: "/images/work/Thumbnail.png",
+    src: "/images/work/Thumbnail.png",
   },
-]
+];
