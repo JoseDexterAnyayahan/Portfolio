@@ -20,25 +20,19 @@ export default function FeaturedWork() {
   const filtered =
     activeCategory === "All"
       ? featuredProjects
-      : featuredProjects.filter(
-          (p) => p.category === activeCategory
-        );
+      : featuredProjects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="FeaturedWork" className="py-20 md:py-28">
       {/* HEADER */}
       <div className="mb-12 flex flex-col gap-6 md:flex-row md:justify-between md:items-end">
         <div>
-          <span className="text-sm text-purple-600 font-medium">
-            Portfolio
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Featured Work
-          </h2>
+          <span className="text-sm text-purple-600 font-medium">Portfolio</span>
+          <h2 className="text-3xl md:text-4xl font-bold">Featured Work</h2>
         </div>
 
         <Button asChild variant="outline">
-          <Link href="/work">View All</Link>
+          <Link href="/works">View All</Link>
         </Button>
       </div>
 

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { Send } from "lucide-react";
 
 export default function CTASection() {
   const [mounted, setMounted] = useState(false);
@@ -136,13 +137,21 @@ export default function CTASection() {
                 <Button
                   type="submit"
                   className="
-                w-full text-base
-                bg-purple-600 hover:bg-purple-700
-                shadow-lg shadow-purple-600/30
-              "
+                    w-full text-base
+                    bg-purple-600 hover:bg-purple-700
+                    shadow-lg shadow-purple-600/30
+                    flex items-center justify-center gap-2
+                  "
                   disabled={loading}
                 >
-                  {loading ? "Sending Message..." : "Start the Conversation"}
+                  {loading ? (
+                    "Sending Message..."
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
 
                 <p className="text-xs text-muted-foreground">

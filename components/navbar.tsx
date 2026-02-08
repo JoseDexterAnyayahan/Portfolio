@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -12,44 +13,52 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+
+/* ---------------- LINKS ---------------- */
+/* Always use ABSOLUTE paths */
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Expertise", href: "#WhatIDo" },
-  { label: "Projects", href: "#FeaturedWork" },
-  { label: "Workflow", href: "#ProcessSection" },
-  { label: "Stack", href: "#ToolsSection" },
+  { label: "About", href: "/#about", id: "about" },
+  { label: "Expertise", href: "/#WhatIDo", id: "WhatIDo" },
+  { label: "Projects", href: "/#FeaturedWork", id: "FeaturedWork" },
+  { label: "Workflow", href: "/#ProcessSection", id: "ProcessSection" },
+  { label: "Stack", href: "/#ToolsSection", id: "ToolsSection" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
 
-  /* ---------- scroll shadow ---------- */
+  /* ---------- SCROLL SHADOW ---------- */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ---------- active section spy ---------- */
+  /* ---------- ACTIVE SECTION SPY (HOME ONLY) ---------- */
   useEffect(() => {
-    const sections = links.map((l) => document.querySelector(l.href));
+    if (!isHome) return;
+
+    const sections = links.map((l) => document.getElementById(l.id));
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActive(`#${entry.target.id}`);
+            setActive(entry.target.id);
           }
         });
       },
-      { threshold: 0.4 },
+      { threshold: 0.5 }
     );
 
     sections.forEach((sec) => sec && observer.observe(sec));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   return (
     <header
@@ -80,12 +89,16 @@ export default function Navbar() {
         {/* DESKTOP NAV */}
         <nav className="hidden items-center gap-2 md:flex">
           {links.map((l) => (
-            <NavLink key={l.href} href={l.href} active={active === l.href}>
+            <NavLink
+              key={l.id}
+              href={l.href}
+              active={isHome && active === l.id}
+            >
               {l.label}
             </NavLink>
           ))}
 
-          <Link href="#CTASection">
+          <Link href="/#CTASection">
             <Button size="sm" className="ml-2">
               Hire Me
             </Button>
@@ -113,17 +126,23 @@ export default function Navbar() {
               <div className="mt-10 flex flex-col gap-4">
                 {links.map((l) => (
                   <MobileLink
-                    key={l.href}
+                    key={l.id}
                     href={l.href}
-                    active={active === l.href}
+                    active={isHome && active === l.id}
                     onClick={() => setOpen(false)}
                   >
                     {l.label}
                   </MobileLink>
                 ))}
 
-                <Link href="#CTASection" className="flex justify-center">
-                  <Button className="mt-4 w-full max-w-xs">Hire Me</Button>
+                <Link
+                  href="/#CTASection"
+                  onClick={() => setOpen(false)}
+                  className="flex justify-center"
+                >
+                  <Button className="mt-4 w-full max-w-xs">
+                    Hire Me
+                  </Button>
                 </Link>
               </div>
             </SheetContent>
@@ -135,7 +154,6 @@ export default function Navbar() {
 }
 
 /* ---------- Desktop Link ---------- */
-
 function NavLink({
   href,
   active,
@@ -163,7 +181,6 @@ function NavLink({
 }
 
 /* ---------- Mobile Link ---------- */
-
 function MobileLink({
   href,
   active,
