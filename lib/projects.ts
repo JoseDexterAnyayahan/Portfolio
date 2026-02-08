@@ -31,7 +31,7 @@ export const featuredProjects: Project[] = [
     category: "Videography",
     type: "video",
     thumbnail: "/images/work/ipponyari.png",
-    url: "https://www.youtube.com/watch?v=VIDEO_ID",
+    url: "https://youtu.be/DNcGtC-xnWU",
   },
   {
     title: "Prenup Session",

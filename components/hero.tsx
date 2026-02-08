@@ -7,7 +7,7 @@ import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative grid min-h-[85vh] grid-cols-1 items-center gap-12 overflow-hidden py-16 md:grid-cols-2 md:py-24">
+    <section className="relative grid min-h-[85vh] grid-cols-1 items-center gap-10 overflow-hidden px-4 py-14 sm:px-6 md:grid-cols-2 md:gap-12 md:px-0 md:py-24">
       {/* LEFT: TEXT */}
       <div className="flex flex-col gap-8 animate-fade-up">
         <div className="space-y-4">
