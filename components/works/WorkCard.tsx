@@ -9,9 +9,30 @@ import {
   DialogTrigger,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
+import { Component } from "lucide-react"; // For Shadcn
 
 export default function WorkCard({ project }: { project: Project }) {
   const isExternal = project.type === "video" || project.type === "website";
+
+  const getTechIcon = (tech: string) => {
+    const iconClass = "h-3.5 w-3.5";
+
+    switch (tech.toLowerCase()) {
+      case "next.js":
+      case "nextjs":
+        return <SiNextdotjs className={iconClass} />;
+      case "typescript":
+        return <SiTypescript className={iconClass} />;
+      case "tailwind css":
+      case "tailwindcss":
+        return <SiTailwindcss className={iconClass} />;
+      case "shadcn":
+        return <Component className={iconClass} />;
+      default:
+        return null;
+    }
+  };
 
   /* ---------- CARD UI ---------- */
 
@@ -42,30 +63,60 @@ export default function WorkCard({ project }: { project: Project }) {
         {/* UNIFIED HOVER OVERLAY */}
         <div
           className="
-            absolute inset-0
-            flex items-center justify-center
-            bg-black/40 backdrop-blur-[2px]
-            opacity-0 transition-all duration-300
-            group-hover:opacity-100
-          "
+    absolute inset-0
+    flex items-center justify-center
+    bg-black/40 backdrop-blur-[2px]
+    opacity-0 transition-all duration-300
+    group-hover:opacity-100
+  "
         >
-          <div
-            className="
-              rounded-full bg-white/95 p-3 shadow-xl
-              transition-all duration-300
-              scale-75 group-hover:scale-100
+          <div className="flex flex-col items-center gap-3">
+            <div
+              className="
+        rounded-full bg-white/95 p-3 shadow-xl
+        transition-all duration-300
+        scale-75 group-hover:scale-100
+      "
+            >
+              {project.type === "video" && (
+                <Play className="h-6 w-6 text-black" />
+              )}
+
+              {project.type === "image" && (
+                <ZoomIn className="h-6 w-6 text-black" />
+              )}
+
+              {project.type === "website" && (
+                <Globe className="h-6 w-6 text-black" />
+              )}
+            </div>
+
+            {project.type === "website" && project.techStack && (
+              <div
+                className="
+          flex flex-wrap gap-2 justify-center
+          px-4 max-w-[80%]
+          opacity-0 translate-y-2
+          transition-all duration-300 delay-100
+          group-hover:opacity-100 group-hover:translate-y-0
+        "
+              >
+                {project.techStack.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="
+              px-3 py-1.5 text-xs font-medium
+              bg-white/95 text-black
+              rounded-full shadow-lg
+              backdrop-blur-sm
+              flex items-center gap-1.5
             "
-          >
-            {project.type === "video" && (
-              <Play className="h-6 w-6 text-black" />
-            )}
-
-            {project.type === "image" && (
-              <ZoomIn className="h-6 w-6 text-black" />
-            )}
-
-            {project.type === "website" && (
-              <Globe className="h-6 w-6 text-black" />
+                  >
+                    {getTechIcon(tech)}
+                    {tech}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
         </div>

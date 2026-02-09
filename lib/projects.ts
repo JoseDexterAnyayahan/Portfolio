@@ -13,11 +13,21 @@ export type Project =
   | {
       title: string;
       category: string;
-      type: "video" | "website";
+      type: "video";
       thumbnail: string;
       url: string;
       description?: string;
       featured?: boolean;
+    }
+  | {
+      title: string;
+      category: string;
+      type: "website";
+      thumbnail: string;
+      url: string;
+      description?: string;
+      featured?: boolean;
+      techStack?: string[];
     };
 
 export const projects: Project[] = [
@@ -28,14 +38,24 @@ export const projects: Project[] = [
     thumbnail: "/images/work/japanese-restaurant.png",
     url: "https://resto-template.vercel.app/dashboard/admin-dashboard",
     featured: true,
+    techStack: ["Next.js", "TypeScript", "Shadcn", "Tailwind CSS"],
+  },
+  {
+    title: "To Do List UI/UX Web App",
+    category: "Web Development",
+    type: "website",
+    thumbnail: "/images/work/ToDoList.jpg",
+    url: "https://todolist-jd.vercel.app/",
+    featured: true,
+    techStack: ["Next.js", "TypeScript", "Shadcn", "Tailwind CSS"],
   },
   {
     title: "Portfolio Website",
     category: "Web Development",
     type: "website",
-    thumbnail: "/images/work/website.png",
-    url: "https://example.com",
-    featured: true,
+    thumbnail: "/images/work/MyPortfolio.png",
+    url: "https://jdportfolio.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "Shadcn", "Tailwind CSS"],
   },
   {
     title: "Business Opening Video",
