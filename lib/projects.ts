@@ -108,8 +108,8 @@ export const projects: Project[] = [
     title: "Back Menu Cover",
     category: "Graphics",
     type: "image",
-    thumbnail: "/images/work/history.jpg",
-    src: "/images/work/history.jpg",
+    thumbnail: "/images/work/History.jpg",
+    src: "/images/work/History.jpg",
   },
   {
     title: "Japanese Drinks Menu",
