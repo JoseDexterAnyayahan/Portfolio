@@ -62,7 +62,7 @@ export default function Navbar() {
   return (
     <header
   className={`
-    sticky md:static top-0 z-50
+    sticky top-0 z-50
     backdrop-blur-xl
     transition-all duration-500
     ${
