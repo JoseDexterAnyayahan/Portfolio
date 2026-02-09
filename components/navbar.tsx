@@ -61,17 +61,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`
-        sticky top-0 z-50 
-        backdrop-blur-xl 
-        transition-all duration-500
-        ${
-          scrolled
-            ? "bg-background/90 shadow-lg shadow-purple-500/5 border-b border-purple-600/10"
-            : "bg-background/60 border-b border-border/40"
-        }
-      `}
-    >
+  className={`
+    sticky md:static top-0 z-50
+    backdrop-blur-xl
+    transition-all duration-500
+    ${
+      scrolled
+        ? "bg-background/90 shadow-lg shadow-purple-500/5 border-b border-purple-600/10"
+        : "bg-background/60 border-b border-border/40"
+    }
+  `}
+>
+
       {/* Top accent line */}
       <div
         className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-purple-600/50 to-transparent transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}

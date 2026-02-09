@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         `}
       >
         <ThemeProvider>
+           <Navbar />
           <div className="relative w-full overflow-x-hidden">
-            <Navbar />
             
             {/* Enhanced Animated Background */}
             <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
