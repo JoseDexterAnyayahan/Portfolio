@@ -20,6 +20,7 @@ import {
   SiFigma,
   SiOpenai,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 import { FaDatabase, FaTools, FaCamera, FaLemon } from "react-icons/fa";
 import { MdDesignServices, MdWeb } from "react-icons/md";
 import { Wrench, Sparkles } from "lucide-react";
@@ -36,6 +37,7 @@ const stacks = [
       { name: "C#", icon: SiSharp },
       { name: "C++", icon: SiCplusplus },
       { name: "Python", icon: SiPython },
+      { name: "Java", icon: FaJava },
     ],
   },
   {
