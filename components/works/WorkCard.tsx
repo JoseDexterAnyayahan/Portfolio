@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
 import { Component } from "lucide-react"; // For Shadcn
+import { useState } from 'react';
 
 export default function WorkCard({ project }: { project: Project }) {
   const isExternal = project.type === "video" || project.type === "website";
@@ -165,42 +166,50 @@ export default function WorkCard({ project }: { project: Project }) {
 
   /* ---------- IMAGE PROJECT MODAL ---------- */
 
-  if (project.type === "image" && "src" in project) {
-    return (
-      <Dialog>
-        <DialogTrigger asChild>
-          <button className="block h-full w-full text-left">{CardUI}</button>
-        </DialogTrigger>
+ if (project.type === "image" && "src" in project) {
+  const [isLoading, setIsLoading] = useState(true);
 
-        <DialogContent className="max-w-4xl border-border/60 bg-background/95 backdrop-blur">
-          {/* ACCESSIBILITY TITLE */}
-          <DialogTitle className="sr-only">{project.title}</DialogTitle>
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button className="block h-full w-full text-left">{CardUI}</button>
+      </DialogTrigger>
 
-          <div className="space-y-4">
-            <div className="relative w-full overflow-hidden rounded-xl">
-              <Image
-                src={project.src}
-                alt={project.title}
-                width={1400}
-                height={1000}
-                className="h-auto w-full object-contain"
-              />
-            </div>
+      <DialogContent className="max-w-4xl border-border/60 bg-background/95 backdrop-blur">
+        {/* ACCESSIBILITY TITLE */}
+        <DialogTitle className="sr-only">{project.title}</DialogTitle>
 
-            <div className="px-2 pb-2">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-
-              {project.description && (
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {project.description}
-                </p>
-              )}
-            </div>
+        <div className="space-y-4">
+          <div className="relative w-full overflow-hidden rounded-xl">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+              </div>
+            )}
+            <Image
+              src={project.src}
+              alt={project.title}
+              width={1400}
+              height={1000}
+              className="h-auto w-full object-contain"
+              onLoad={() => setIsLoading(false)}
+            />
           </div>
-        </DialogContent>
-      </Dialog>
-    );
-  }
+
+          <div className="px-2 pb-2">
+            <h3 className="text-lg font-semibold">{project.title}</h3>
+
+            {project.description && (
+              <p className="mt-1 text-sm text-muted-foreground">
+                {project.description}
+              </p>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
   return <div className="block h-full">{CardUI}</div>;
 }

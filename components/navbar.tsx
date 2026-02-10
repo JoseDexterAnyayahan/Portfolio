@@ -75,7 +75,7 @@ export default function Navbar() {
 
       {/* Top accent line */}
       <div
-        className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-purple-600/50 to-transparent transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-x-0 top-0 h-0.5 bg-linear-to-r from-transparent via-purple-600/50 to-transparent transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
       />
 
       <div
@@ -93,7 +93,7 @@ export default function Navbar() {
           <span className="text-muted-foreground transition-colors group-hover:text-purple-600">
             &lt;
           </span>
-          <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
             JD
           </span>
           <span className="text-muted-foreground transition-colors group-hover:text-purple-600">
@@ -163,7 +163,7 @@ export default function Navbar() {
                     size={16}
                     className="text-purple-600 animate-pulse"
                   />
-                  <span className="font-semibold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
+                  <span className="font-semibold bg-linear-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
                     Menu
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="mt-6"
                 >
-                  <Button className="group w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 shadow-lg shadow-purple-600/30">
+                  <Button className="group w-full bg-linear-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 shadow-lg shadow-purple-600/30">
                     <span>Hire Me</span>
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </Button>
@@ -195,7 +195,7 @@ export default function Navbar() {
 
               {/* Decorative element */}
               <div className="absolute bottom-8 left-8 right-8">
-                <div className="h-px bg-gradient-to-r from-transparent via-purple-600/30 to-transparent" />
+                <div className="h-px bg-linear-to-r from-transparent via-purple-600/30 to-transparent" />
               </div>
             </SheetContent>
           </Sheet>
