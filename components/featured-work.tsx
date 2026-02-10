@@ -24,16 +24,20 @@ export default function FeaturedWork() {
       : featuredProjects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="FeaturedWork" className="relative py-20 md:py-28 overflow-hidden">
-
+    <section
+      id="FeaturedWork"
+      className="relative py-20 md:py-28 overflow-hidden"
+    >
       {/* HEADER */}
       <div className="mb-12 flex flex-col gap-6 md:flex-row md:justify-between md:items-end">
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/10 border border-purple-600/20 backdrop-blur-sm animate-fade-up">
             <Briefcase size={16} className="text-purple-600" />
-            <span className="text-sm text-purple-600 font-medium">Portfolio</span>
+            <span className="text-sm text-purple-600 font-medium">
+              Portfolio
+            </span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl font-bold animate-fade-up animate-delay-1">
             <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
               Featured Work
@@ -44,19 +48,22 @@ export default function FeaturedWork() {
           <div className="h-1 w-16 bg-gradient-to-r from-purple-600 to-transparent rounded-full animate-fade-up animate-delay-2" />
         </div>
 
-        <Button 
-          asChild 
+        <Button
+          asChild
           variant="outline"
           className="group relative overflow-hidden border-purple-600/20 hover:border-purple-600/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 animate-fade-up animate-delay-2"
         >
           <Link href="/works" className="flex items-center gap-2">
             {/* Gradient background on hover */}
             <span className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
+
             <span className="relative z-10 group-hover:text-purple-600 transition-colors">
               View All
             </span>
-            <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-1 group-hover:text-purple-600" />
+            <ArrowRight
+              size={16}
+              className="relative z-10 transition-transform group-hover:translate-x-1 group-hover:text-purple-600"
+            />
           </Link>
         </Button>
       </div>
@@ -65,7 +72,7 @@ export default function FeaturedWork() {
       <div className="mb-10 flex flex-wrap gap-3 animate-fade-up animate-delay-3">
         {categories.map((cat, index) => {
           const isActive = activeCategory === cat;
-          
+
           return (
             <Button
               key={cat}
@@ -78,12 +85,13 @@ export default function FeaturedWork() {
                 overflow-hidden
                 transition-all
                 duration-300
-                ${isActive 
-                  ? "bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-lg shadow-purple-500/30 scale-105" 
-                  : "border-purple-600/20 hover:border-purple-600/40 hover:bg-purple-600/5"
+                ${
+                  isActive
+                    ? "bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-lg shadow-purple-500/30 scale-105"
+                    : "border-purple-600/20 hover:border-purple-600/40 hover:bg-purple-600/5"
                 }
               `}
-              style={{ 
+              style={{
                 animationDelay: `${0.1 * index}s`,
               }}
             >
@@ -96,7 +104,7 @@ export default function FeaturedWork() {
               {isActive && (
                 <Sparkles size={14} className="mr-1.5 animate-pulse" />
               )}
-              
+
               <span className="relative z-10">{cat}</span>
 
               {/* Active bottom accent */}
@@ -112,7 +120,11 @@ export default function FeaturedWork() {
       <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground animate-fade-up animate-delay-4">
         <div className="h-px w-8 bg-purple-600/30" />
         <span>
-          Showing <span className="font-semibold text-purple-600">{filtered.length}</span> {filtered.length === 1 ? 'project' : 'projects'}
+          Showing{" "}
+          <span className="font-semibold text-purple-600">
+            {filtered.length}
+          </span>{" "}
+          {filtered.length === 1 ? "project" : "projects"}
         </span>
         <div className="h-px flex-1 bg-gradient-to-r from-purple-600/30 to-transparent" />
       </div>
@@ -143,7 +155,7 @@ export default function FeaturedWork() {
           <Button
             variant="outline"
             onClick={() => setActiveCategory("All")}
-            className="border-purple-600/20 hover:border-purple-600/40"
+            className="border-purple-600/20 hover:border-purple-600/40 bg-purple-600/10 hover:bg-purple-600/20 text-purple-600 font-semibold shadow-lg shadow-purple-500/20"
           >
             View All Projects
           </Button>
@@ -151,14 +163,14 @@ export default function FeaturedWork() {
       )}
 
       {/* Background grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 -z-10 opacity-[0.015] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: "60px 60px",
         }}
       />
     </section>
