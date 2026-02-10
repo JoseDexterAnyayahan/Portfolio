@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { Project } from "@/lib/projects";
-import { ArrowUpRight, Globe, Play, ZoomIn } from "lucide-react";
+import {
+  ArrowUpRight,
+  Globe,
+  Play,
+  ZoomIn,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -10,8 +17,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
-import { Component } from "lucide-react"; // For Shadcn
-import { useState } from 'react';
+import { Component } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function WorkCard({ project }: { project: Project }) {
   const isExternal = project.type === "video" || project.type === "website";
@@ -64,12 +72,12 @@ export default function WorkCard({ project }: { project: Project }) {
         {/* UNIFIED HOVER OVERLAY */}
         <div
           className="
-    absolute inset-0
-    flex items-center justify-center
-    bg-black/40 backdrop-blur-[2px]
-    opacity-0 transition-all duration-300
-    group-hover:opacity-100
-  "
+            absolute inset-0
+            flex items-center justify-center
+            bg-black/40 backdrop-blur-[2px]
+            opacity-0 transition-all duration-300
+            group-hover:opacity-100
+          "
         >
           <div className="flex flex-col items-center gap-3">
             <div
@@ -166,50 +174,124 @@ export default function WorkCard({ project }: { project: Project }) {
 
   /* ---------- IMAGE PROJECT MODAL ---------- */
 
- if (project.type === "image" && "src" in project) {
-  const [isLoading, setIsLoading] = useState(true);
+  if (project.type === "image" && "src" in project) {
+    const images = Array.isArray(project.src) ? project.src : [project.src];
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <button className="block h-full w-full text-left">{CardUI}</button>
-      </DialogTrigger>
+    const handlePrevious = () => {
+      setIsLoading(true);
+      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
 
-      <DialogContent className="max-w-4xl border-border/60 bg-background/95 backdrop-blur">
-        {/* ACCESSIBILITY TITLE */}
-        <DialogTitle className="sr-only">{project.title}</DialogTitle>
+    const handleNext = () => {
+      setIsLoading(true);
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
 
-        <div className="space-y-4">
-          <div className="relative w-full overflow-hidden rounded-xl">
-            {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-muted">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+    const handleThumbnailClick = (index: number) => {
+      setIsLoading(true);
+      setCurrentIndex(index);
+    };
+
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <button className="block h-full w-full text-left">{CardUI}</button>
+        </DialogTrigger>
+
+        <DialogContent className="max-w-4xl border-border/60 bg-background/95 backdrop-blur">
+          {/* ACCESSIBILITY TITLE */}
+          <DialogTitle className="sr-only">{project.title}</DialogTitle>
+
+          <div className="space-y-4">
+            {/* MAIN IMAGE CONTAINER */}
+            <div className="relative w-full overflow-hidden rounded-xl max-h-[70vh]">
+              {/* LOADING SPINNER */}
+              {isLoading && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-muted">
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+                </div>
+              )}
+
+              {/* MAIN IMAGE */}
+              <Image
+                src={images[currentIndex]}
+                alt={`${project.title} - Image ${currentIndex + 1}`}
+                width={1400}
+                height={1000}
+                className="h-auto w-full object-contain max-h-[70vh]"
+                onLoad={() => setIsLoading(false)}
+              />
+
+              {/* NAVIGATION BUTTONS - Only show if multiple images */}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={handlePrevious}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition hover:bg-black/70"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition hover:bg-black/70"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+
+                  {/* IMAGE COUNTER */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1 text-xs text-white backdrop-blur-sm">
+                    {currentIndex + 1} / {images.length}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* THUMBNAIL GALLERY - Only show if multiple images */}
+            {images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-2">
+                {images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleThumbnailClick(index)}
+                    className={cn(
+                      "relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all",
+                      currentIndex === index
+                        ? "border-primary scale-105"
+                        : "border-border/60 opacity-60 hover:opacity-100",
+                    )}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      width={80}
+                      height={80}
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                ))}
               </div>
             )}
-            <Image
-              src={project.src}
-              alt={project.title}
-              width={1400}
-              height={1000}
-              className="h-auto w-full object-contain"
-              onLoad={() => setIsLoading(false)}
-            />
-          </div>
 
-          <div className="px-2 pb-2">
-            <h3 className="text-lg font-semibold">{project.title}</h3>
+            {/* PROJECT INFO */}
+            <div className="px-2 pb-2">
+              <h3 className="text-lg font-semibold">{project.title}</h3>
 
-            {project.description && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                {project.description}
-              </p>
-            )}
+              {project.description && (
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {project.description}
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   return <div className="block h-full">{CardUI}</div>;
 }

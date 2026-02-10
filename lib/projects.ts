@@ -6,7 +6,7 @@ export type Project =
       category: string;
       type: "image";
       thumbnail: string;
-      src: string;
+      src: string | string[]; // Now supports single or multiple images
       description?: string;
       featured?: boolean;
     }
@@ -92,7 +92,12 @@ export const projects: Project[] = [
     category: "Photography",
     type: "image",
     thumbnail: "/images/work/A-3411.jpg",
-    src: "/images/work/A-3411.jpg",
+    src: ["/images/work/A-3390.jpg",
+      "/images/work/A-3427.jpg",
+      "/images/work/A-3437.jpg",
+      "/images/work/A-3467.jpg",
+    ],
+    
     featured: true,
   },
   {
@@ -100,29 +105,34 @@ export const projects: Project[] = [
     category: "Photography",
     type: "image",
     thumbnail: "/images/work/portrait.jpg",
-    src: "/images/work/portrait.jpg",
+    src: ["/images/work/A-2989.jpg",
+          "/images/work/A-3029.jpg",
+          "/images/work/A-3343.jpg",
+    ]
   },
   {
     title: "Social Media Thumbnail",
     category: "Graphics",
     type: "image",
     thumbnail: "/images/work/Thumbnail.png",
-    src: "/images/work/Thumbnail.png",
+    src: [
+      "/images/work/Thumbnail.png",
+      "/images/work/roadmap.png",
+      "/images/work/ai.png",
+      "/images/work/photog.png",
+    ],
     featured: true,
   },
   {
-    title: "Social Poster Multimedia",
+    title: "Social Media Poster",
     category: "Graphics",
     type: "image",
     thumbnail: "/images/work/POSTING 5.png",
-    src: "/images/work/POSTING 5.png",
-  },
-  {
-    title: "Social Poster Website",
-    category: "Graphics",
-    type: "image",
-    thumbnail: "/images/work/POSTING 6.png",
-    src: "/images/work/POSTING 6.png",
+    src: ["/images/work/POSTING 5.png",
+      "/images/work/POSTING 6.png",
+      "/images/work/POSTING 1.png",
+      "/images/work/abic services.png"
+    ]
   },
   {
     title: "Back Menu Cover",
@@ -136,7 +146,9 @@ export const projects: Project[] = [
     category: "Graphics",
     type: "image",
     thumbnail: "/images/work/menu.jpg",
-    src: "/images/work/menu.jpg",
+    src: ["/images/work/menu.jpg",
+          "/images/work/MENU 1.jpg",
+    ]
   },
 ];
 
