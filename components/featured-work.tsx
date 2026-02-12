@@ -26,7 +26,7 @@ export default function FeaturedWork() {
   return (
     <section
       id="FeaturedWork"
-      className="relative py-20 md:py-28 overflow-hidden"
+      className="relative pt-8 pb-20 md:py-28 overflow-hidden"
     >
       {/* HEADER */}
       <div className="mb-12 flex flex-col gap-6 md:flex-row md:justify-between md:items-end">

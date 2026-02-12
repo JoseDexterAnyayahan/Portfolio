@@ -74,7 +74,7 @@ function TimelineCard({
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 relative">
+   <section id="about" className="pt-20 pb-8 md:py-28 relative">
       {/* Decorative background elements */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-purple-600/5 rounded-full blur-3xl animate-pulse-slow pointer-events-none" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl animate-float pointer-events-none" />

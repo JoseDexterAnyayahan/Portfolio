@@ -107,15 +107,13 @@ export default function ToolsSection() {
   return (
     <section
       id="ToolsSection"
-      className="relative py-24 md:py-28 overflow-hidden"
+      className="relative pt-8 pb-8 md:py-28 overflow-hidden"
     >
       {/* HEADER */}
       <div className="mb-20 max-w-3xl space-y-4 relative">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/10 border border-purple-600/20 backdrop-blur-sm animate-fade-up">
           <Wrench size={16} className="text-purple-600" />
-          <span className="text-sm font-medium text-purple-600">
-            Toolkit
-          </span>
+          <span className="text-sm font-medium text-purple-600">Toolkit</span>
         </div>
 
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl animate-fade-up animate-delay-1">
@@ -125,9 +123,9 @@ export default function ToolsSection() {
         </h2>
 
         <p className="text-lg leading-relaxed text-muted-foreground animate-fade-up animate-delay-2">
-          A cross-disciplinary toolkit combining creative production,
-          full-stack development, and modern digital workflows enabling
-          complete end-to-end solutions from concept to deployment.
+          A cross-disciplinary toolkit combining creative production, full-stack
+          development, and modern digital workflows enabling complete end-to-end
+          solutions from concept to deployment.
         </p>
 
         {/* Decorative line */}
@@ -165,18 +163,28 @@ export default function ToolsSection() {
             >
               {/* Animated gradient border on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${group.color}`} />
+                <div
+                  className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${group.color}`}
+                />
               </div>
 
               {/* Background gradient glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+              />
 
               {/* Floating particles on hover */}
               {isHovered && (
                 <>
                   <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-purple-600/30 rounded-full animate-float-soft" />
-                  <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-violet-600/30 rounded-full animate-float-soft" style={{ animationDelay: '0.2s' }} />
-                  <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-purple-600/30 rounded-full animate-float-soft" style={{ animationDelay: '0.4s' }} />
+                  <div
+                    className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-violet-600/30 rounded-full animate-float-soft"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  <div
+                    className="absolute top-1/2 right-1/3 w-1 h-1 bg-purple-600/30 rounded-full animate-float-soft"
+                    style={{ animationDelay: "0.4s" }}
+                  />
                 </>
               )}
 
@@ -187,7 +195,10 @@ export default function ToolsSection() {
                     <h3 className="text-lg font-semibold transition-colors group-hover:text-purple-600">
                       {group.title}
                     </h3>
-                    <Sparkles size={14} className="text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity animate-pulse" />
+                    <Sparkles
+                      size={14}
+                      className="text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity animate-pulse"
+                    />
                   </div>
 
                   <p className="text-xs text-muted-foreground">
@@ -225,7 +236,7 @@ export default function ToolsSection() {
                           group/item
                           animate-fade-up
                         "
-                        style={{ animationDelay: `${(i * 0.08) + (idx * 0.03)}s` }}
+                        style={{ animationDelay: `${i * 0.08 + idx * 0.03}s` }}
                       >
                         {/* ICON BOX */}
                         <div
@@ -255,7 +266,9 @@ export default function ToolsSection() {
                 </ul>
 
                 {/* Bottom accent line */}
-                <div className={`mt-6 h-1 w-0 bg-gradient-to-r ${group.color} rounded-full transition-all duration-500 group-hover:w-full`} />
+                <div
+                  className={`mt-6 h-1 w-0 bg-gradient-to-r ${group.color} rounded-full transition-all duration-500 group-hover:w-full`}
+                />
               </CardContent>
 
               {/* Bottom shine effect */}
@@ -266,14 +279,14 @@ export default function ToolsSection() {
       </div>
 
       {/* Background grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 -z-10 opacity-[0.015] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: "60px 60px",
         }}
       />
     </section>

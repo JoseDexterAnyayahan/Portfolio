@@ -45,16 +45,13 @@ export default function ProcessSection() {
   return (
     <section
       id="ProcessSection"
-      className="relative py-24 md:py-28 overflow-hidden"
+      className="relative pt-8 pb-8 md:py-28 overflow-hidden"
     >
-
       {/* HEADER */}
       <div className="mb-20 max-w-2xl space-y-4 relative">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/10 border border-purple-600/20 backdrop-blur-sm animate-fade-up">
           <Workflow size={16} className="text-purple-600" />
-          <span className="text-sm font-medium text-purple-600">
-            Workflow
-          </span>
+          <span className="text-sm font-medium text-purple-600">Workflow</span>
         </div>
 
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl animate-fade-up animate-delay-1">
@@ -64,8 +61,8 @@ export default function ProcessSection() {
         </h2>
 
         <p className="text-lg leading-relaxed text-muted-foreground animate-fade-up animate-delay-2">
-          A structured, client-focused workflow that turns ideas into
-          cinematic visuals and high-performing digital experiences.
+          A structured, client-focused workflow that turns ideas into cinematic
+          visuals and high-performing digital experiences.
         </p>
 
         {/* Decorative line */}
@@ -75,16 +72,52 @@ export default function ProcessSection() {
       {/* Connection Lines (Desktop) */}
       <div className="hidden lg:block absolute top-[340px] left-0 right-0 pointer-events-none">
         <div className="max-w-7xl mx-auto px-8">
-          <svg className="w-full h-2" viewBox="0 0 100 2" preserveAspectRatio="none">
+          <svg
+            className="w-full h-2"
+            viewBox="0 0 100 2"
+            preserveAspectRatio="none"
+          >
             <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgb(147, 51, 234)" stopOpacity="0.2" />
-                <stop offset="50%" stopColor="rgb(147, 51, 234)" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="rgb(147, 51, 234)" stopOpacity="0.2" />
+              <linearGradient
+                id="lineGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop
+                  offset="0%"
+                  stopColor="rgb(147, 51, 234)"
+                  stopOpacity="0.2"
+                />
+                <stop
+                  offset="50%"
+                  stopColor="rgb(147, 51, 234)"
+                  stopOpacity="0.5"
+                />
+                <stop
+                  offset="100%"
+                  stopColor="rgb(147, 51, 234)"
+                  stopOpacity="0.2"
+                />
               </linearGradient>
             </defs>
-            <line x1="12.5" y1="1" x2="87.5" y2="1" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="4 4">
-              <animate attributeName="stroke-dashoffset" from="0" to="8" dur="1s" repeatCount="indefinite" />
+            <line
+              x1="12.5"
+              y1="1"
+              x2="87.5"
+              y2="1"
+              stroke="url(#lineGradient)"
+              strokeWidth="2"
+              strokeDasharray="4 4"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="0"
+                to="8"
+                dur="1s"
+                repeatCount="indefinite"
+              />
             </line>
           </svg>
         </div>
@@ -95,16 +128,18 @@ export default function ProcessSection() {
         {processSteps.map((item, i) => {
           const isHovered = hoveredIndex === i;
           const isPrevHovered = hoveredIndex === i - 1;
-          
+
           return (
             <div key={item.step} className="relative">
               {/* Arrow connector (Desktop only, not on last item) */}
               {i < processSteps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-4 z-20 -translate-y-1/2">
-                  <ArrowRight 
-                    size={20} 
+                  <ArrowRight
+                    size={20}
                     className={`text-purple-600/30 transition-all duration-300 ${
-                      isHovered || isPrevHovered ? 'text-purple-600 scale-125' : ''
+                      isHovered || isPrevHovered
+                        ? "text-purple-600 scale-125"
+                        : ""
                     }`}
                   />
                 </div>
@@ -134,17 +169,24 @@ export default function ProcessSection() {
               >
                 {/* Animated gradient border on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${item.color}`} />
+                  <div
+                    className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r ${item.color}`}
+                  />
                 </div>
 
                 {/* Background gradient on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
 
                 {/* Floating particles on hover */}
                 {isHovered && (
                   <>
                     <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-purple-600/30 rounded-full animate-float-soft" />
-                    <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-violet-600/30 rounded-full animate-float-soft" style={{ animationDelay: '0.2s' }} />
+                    <div
+                      className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-violet-600/30 rounded-full animate-float-soft"
+                      style={{ animationDelay: "0.2s" }}
+                    />
                   </>
                 )}
 
@@ -157,8 +199,10 @@ export default function ProcessSection() {
 
                     <div className="relative">
                       {/* Glow ring on hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-full blur-lg opacity-0 group-hover:opacity-40 transition-all duration-500 scale-150`} />
-                      
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-full blur-lg opacity-0 group-hover:opacity-40 transition-all duration-500 scale-150`}
+                      />
+
                       <div
                         className={`
                           relative
@@ -201,17 +245,19 @@ export default function ProcessSection() {
 
                   {/* BOTTOM ACCENT */}
                   <div className="mt-auto space-y-3">
-                    <div className={`h-1 w-0 bg-gradient-to-r ${item.color} rounded-full transition-all duration-500 group-hover:w-full`} />
-                    
+                    <div
+                      className={`h-1 w-0 bg-gradient-to-r ${item.color} rounded-full transition-all duration-500 group-hover:w-full`}
+                    />
+
                     {/* Progress indicator */}
                     <div className="flex items-center gap-1">
                       {processSteps.map((_, idx) => (
                         <div
                           key={idx}
                           className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                            idx <= i 
-                              ? 'bg-purple-600/50 group-hover:bg-purple-600' 
-                              : 'bg-purple-600/10'
+                            idx <= i
+                              ? "bg-purple-600/50 group-hover:bg-purple-600"
+                              : "bg-purple-600/10"
                           }`}
                         />
                       ))}
@@ -228,14 +274,14 @@ export default function ProcessSection() {
       </div>
 
       {/* Background grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 -z-10 opacity-[0.015] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: "60px 60px",
         }}
       />
     </section>

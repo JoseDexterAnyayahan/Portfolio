@@ -46,8 +46,10 @@ export default function CTASection() {
   if (!mounted) return null;
 
   return (
-    <section id="CTASection" className="relative overflow-hidden py-24 md:py-28">
-
+    <section
+      id="CTASection"
+      className="relative overflow-hidden pt-8 pb-16 md:py-28"
+    >
       <div className="grid items-center gap-16 lg:grid-cols-2">
         {/* LEFT — FORM */}
         <Card className="group border-purple-600/10 bg-background/50 backdrop-blur-sm shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 animate-fade-up">
@@ -57,7 +59,9 @@ export default function CTASection() {
             <div className="mb-8 space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/10 border border-purple-600/20 backdrop-blur-sm">
                 <Mail size={16} className="text-purple-600" />
-                <span className="text-sm font-medium text-purple-600">Contact</span>
+                <span className="text-sm font-medium text-purple-600">
+                  Contact
+                </span>
               </div>
 
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -67,7 +71,8 @@ export default function CTASection() {
               </h2>
 
               <p className="leading-relaxed text-muted-foreground">
-                Hiring, collaboration, or creative project — send your details and I'll respond with next steps, timeline, and availability.
+                Hiring, collaboration, or creative project — send your details
+                and I'll respond with next steps, timeline, and availability.
               </p>
 
               <div className="h-1 w-20 bg-gradient-to-r from-purple-600 to-transparent rounded-full" />
@@ -80,8 +85,12 @@ export default function CTASection() {
                     <CheckCircle2 className="text-green-600" size={24} />
                   </div>
                   <div>
-                    <p className="font-semibold text-green-600 text-lg">Message Sent Successfully!</p>
-                    <p className="text-sm text-green-600/80">I'll get back to you shortly</p>
+                    <p className="font-semibold text-green-600 text-lg">
+                      Message Sent Successfully!
+                    </p>
+                    <p className="text-sm text-green-600/80">
+                      I'll get back to you shortly
+                    </p>
                   </div>
                 </div>
 
@@ -117,7 +126,9 @@ export default function CTASection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Project / Message</label>
+                  <label className="text-sm font-medium">
+                    Project / Message
+                  </label>
                   <Textarea
                     name="message"
                     placeholder="Tell me about your project, goals, timeline, and deliverables…"
@@ -172,7 +183,10 @@ export default function CTASection() {
               </div>
 
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-purple-600/20 rounded-full animate-pulse" />
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-violet-600/20 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+              <div
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-violet-600/20 rounded-full animate-pulse"
+                style={{ animationDelay: "0.5s" }}
+              />
             </div>
           </div>
 
@@ -198,14 +212,14 @@ export default function CTASection() {
         </div>
       </div>
 
-      <div 
+      <div
         className="absolute inset-0 -z-10 opacity-[0.015] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
             linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: "60px 60px",
         }}
       />
     </section>

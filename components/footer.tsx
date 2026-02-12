@@ -137,11 +137,12 @@ export default function Footer() {
 
         {/* Bottom section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
-            © {new Date().getFullYear()} Jose Dexter Anyayahan. Made with{" "}
-            <Heart className="inline h-3.5 w-3.5 text-purple-600 fill-purple-600 animate-pulse" />{" "}
-            in the Philippines
-          </p>
+         <p className="text-sm text-muted-foreground text-center sm:text-left">
+  © {new Date().getFullYear()} Jose Dexter Anyayahan. Crafted with{" "}
+  <Heart className="inline h-3.5 w-3.5 text-purple-600 fill-purple-600 animate-pulse" />{" "}
+  using modern web technologies.
+</p>
+
         </div>
       </div>
     </footer>
