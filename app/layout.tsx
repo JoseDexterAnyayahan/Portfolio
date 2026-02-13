@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import ScrollToTop from "@/components/scroll-to-top";
+import FloatingSocials from "@/components/floating-socials";
 
 const logoFont = Space_Grotesk({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         `}
       >
         <ThemeProvider>
+           <FloatingSocials />
            <Navbar />
           <div className="relative w-full overflow-x-hidden">
             

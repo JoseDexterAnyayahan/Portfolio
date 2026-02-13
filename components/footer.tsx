@@ -1,13 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Heart,
-} from "lucide-react";
+import { Facebook, Github, Instagram, Linkedin, Heart } from "lucide-react";
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -137,12 +131,11 @@ export default function Footer() {
 
         {/* Bottom section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-         <p className="text-sm text-muted-foreground text-center sm:text-left">
-  © {new Date().getFullYear()} Jose Dexter Anyayahan. Crafted with{" "}
-  <Heart className="inline h-3.5 w-3.5 text-purple-600 fill-purple-600 animate-pulse" />{" "}
-  using modern web technologies.
-</p>
-
+          <p className="text-sm text-muted-foreground text-center sm:text-left">
+            © {new Date().getFullYear()} Jose Dexter Anyayahan. Crafted with{" "}
+            <Heart className="inline h-3.5 w-3.5 text-purple-600 fill-purple-600 animate-pulse" />{" "}
+            using modern web technologies.
+          </p>
         </div>
       </div>
     </footer>
