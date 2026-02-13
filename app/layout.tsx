@@ -12,6 +12,10 @@ const logoFont = Space_Grotesk({
   weight: ["600", "700"],
   variable: "--font-logo",
 });
+export const metadata = {
+  title: "JD Portfolio",
+  description: "Developer Portfolio",
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -28,8 +32,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         `}
       >
         <ThemeProvider>
-           <FloatingSocials />
-           <Navbar />
+          <FloatingSocials />
+          <Navbar />
           <div className="relative w-full overflow-x-hidden">
             
             {/* Enhanced Animated Background */}

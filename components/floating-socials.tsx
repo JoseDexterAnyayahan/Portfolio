@@ -39,7 +39,7 @@ const socialLinks: SocialLink[] = [
     glowColor: "shadow-[0_0_10px_rgba(225,48,108,0.3)]",
   },
   {
-    href: "https://www.linkedin.com/in/jose-dexter-anyayahan-3b6a00367/",
+    href: "https://www.linkedin.com/in/jose-dexter-anyayahan-4647923a6/",
     icon: Linkedin,
     label: "LinkedIn",
     color:

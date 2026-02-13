@@ -113,7 +113,7 @@ export default function Footer() {
                 label="Instagram"
               />
               <SocialLink
-                href="https://www.linkedin.com/in/jose-dexter-anyayahan-3b6a00367/"
+                href="https://www.linkedin.com/in/jose-dexter-anyayahan-4647923a6/"
                 icon={Linkedin}
                 label="LinkedIn"
               />
