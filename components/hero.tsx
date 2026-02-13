@@ -37,7 +37,7 @@ export default function Hero() {
 
           <Button size="lg" variant="outline" asChild>
             <a
-              href="/Jose Dexter B. Anyayahan.pdf"
+              href="/jose-dexter-anyayahan-cv.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
